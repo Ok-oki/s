@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Okay'ın Sağlık ve Aşk Menüsü</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #ffe8ec;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .menu-container {
+      background: #fff0f4;
+      padding: 20px 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      width: 320px;
+      text-align: center;
+      color: #d2004c;
+    }
+    h1 {
+      margin-bottom: 25px;
+      font-weight: bold;
+    }
+    select {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0 20px 0;
+      border: 2px solid #d2004c;
+      border-radius: 5px;
+      font-size: 16px;
+      color: #d2004c;
+      background: #fff0f4;
+      appearance: none;
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      cursor: pointer;
+    }
+    button {
+      background: #d2004c;
+      color: white;
+      border: none;
+      padding: 12px 0;
+      width: 100%;
+      font-size: 18px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #a6003a;
+    }
+    .result {
+      margin-top: 15px;
+      font-weight: bold;
+      color: #d2004c;
+      min-height: 1.2em;
+    }
+  </style>
+</head>
+<body>
+  <div class="menu-container">
+    <h1>Okay'ın Sağlık ve Aşk Menüsü</h1>
+    <label for="food">Bugün ne yedin?</label>
+    <select id="food">
+      <option value="">Seçiniz</option>
+      <option value="Kahvaltı">Kahvaltı</option>
+      <option value="Pizza">Pizza</option>
+      <option value="Salata">Salata</option>
+      <option value="Tatlı">Tatlı</option>
+    </select>
+    <label for="drink">Bugün ne içtin?</label>
+    <select id="drink">
+      <option value="">Seçiniz</option>
+      <option value="Su">Su</option>
+      <option value="Kahve">Kahve</option>
+      <option value="Çay">Çay</option>
+      <option value="Meyve suyu">Meyve suyu</option>
+    </select>
+    <button onclick="showStatus()">Durumu Göster</button>
+    <div class="result" id="result"></div>
+  </div>
+
+  <script>
+    function showStatus() {
+      const food = document.getElementById('food').value;
+      const drink = document.getElementById('drink').value;
+      const result = document.getElementById('result');
+
+      if (!food || !drink) {
+        result.textContent = "Lütfen her iki alanı da seçiniz.";
+        return;
+      }
+
+      let message = `Bugün ${food} yedin ve ${drink} içtin. Sağlıklı günler! ❤️`;
+      result.textContent = message;
+    }
+  </script>
+</body>
+</html>
